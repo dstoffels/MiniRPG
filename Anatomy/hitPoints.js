@@ -1,0 +1,32 @@
+import { TICK_RATE } from '../constants.js';
+import { CON, STR } from '../Stats/attributes.js';
+import Vital from '../Vitals/vital.js';
+
+export default class HitPoints extends Vital {
+	name = 'Hit Points';
+	// Maximum Level
+	_setMax(player) {
+		const str = player.attributes[STR].level,
+			con = player.attributes[CON].level;
+		this._max = Math.floor((str + con) / 4);
+	}
+
+	// Minimum level
+	get _min() {
+		return 0;
+	}
+
+	// Threshold
+	get _threshold() {
+		return this.max / 2;
+	}
+
+	get #isRecovering() {
+		return this.current > this._threshold;
+	}
+
+	_recoveryRate() {
+		const ptsHealedPerSec = this.max / 60;
+		return this.#isRecovering ? ptsHealedPerSec * TICK_RATE : 0;
+	}
+}

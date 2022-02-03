@@ -1,0 +1,13 @@
+#character-creation-screen {
+	z-index: 5;
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	box-sizing: border-box;
+	top: 0;
+	left: 0;
+}
+
+.att-inc-btn {
+	width: 30px;
+}
