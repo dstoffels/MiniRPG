@@ -1,4 +1,4 @@
-import createElement from '../createElement.js';
+import createElement from '../BootstrapElements/createElement.js';
 
 export default class Table {
 	column;
@@ -10,7 +10,7 @@ export default class Table {
 	}
 
 	display(parent) {
-		this.column = createElement('div', parent, '', 'col-sm-4');
+		this.column = createElement('div', parent, '', '');
 		createElement('h4', this.column, '', 'text-center', this.title);
 
 		const table = createElement(

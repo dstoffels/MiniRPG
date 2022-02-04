@@ -1,3 +1,7 @@
+* {
+	box-sizing: border-box;
+}
+
 #character-creation-screen {
 	z-index: 5;
 	position: absolute;

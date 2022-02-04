@@ -1,4 +1,4 @@
-import createElement from '../createElement.js';
+import createElement from '../BootstrapElements/createElement.js';
 import Table from './table.js';
 
 /////////// FIXME: NEED 1 TABLE PER DOMAIN ///////////
