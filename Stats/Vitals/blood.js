@@ -1,5 +1,5 @@
-import { FULL_RECOVERY_TIME, TICK_RATE } from '../constants.js';
-import { CON, STR } from '../Stats/attributes.js';
+import { FULL_RECOVERY_TIME, TICK_RATE } from '../../constants.js';
+import { CON, STR } from '../Attributes/attributes.js';
 import Vital from './vital.js';
 
 export default class Blood extends Vital {

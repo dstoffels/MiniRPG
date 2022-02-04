@@ -1,4 +1,4 @@
-import { ACU, ARD, DIS, INT } from '../Stats/attributes.js';
+import { ACU, ARD, DIS, INT } from '../Attributes/attributes.js';
 import Vital from './vital.js';
 
 export default class Mana extends Vital {

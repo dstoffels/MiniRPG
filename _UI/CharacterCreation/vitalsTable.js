@@ -1,9 +1,10 @@
-import createElement from '../BootstrapElements/createElement.js';
+import { createElement } from '../BootstrapElements/createElement.js';
 import Table from './table.js';
 
 export default class VitalsTable extends Table {
 	constructor(player, parent) {
 		super(player, parent, 'Vitals');
+		this.display(parent);
 	}
 
 	generateTable(tableBody) {
@@ -18,7 +19,7 @@ export default class VitalsTable extends Table {
 	}
 
 	refresh() {
-		this.column.remove();
+		this.container.remove();
 		this.display(this.parent);
 	}
 }

@@ -1,4 +1,4 @@
-import { FULL_RECOVERY_TIME, TICK_RATE } from '../constants.js';
+import { FULL_RECOVERY_TIME, TICK_RATE } from '../../constants.js';
 import HitPoints from './hitPoints.js';
 
 export default class BodyPart {

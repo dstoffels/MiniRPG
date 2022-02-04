@@ -1,5 +1,5 @@
-import { TICK_RATE_MS } from '../constants.js';
-import { CON, DIS } from '../Stats/attributes.js';
+import { TICK_RATE_MS } from '../../constants.js';
+import { CON, DIS } from '../Attributes/attributes.js';
 import Vital from './vital.js';
 
 export default class Temperature extends Vital {

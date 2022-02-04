@@ -1,4 +1,4 @@
-export default function createElement(
+export function createElement(
 	type,
 	parent = null,
 	id = '',
@@ -14,4 +14,16 @@ export default function createElement(
 	parent?.appendChild(element);
 
 	return element;
+}
+
+export function createCol(parent, size, classes) {
+	return createElement('div', parent, '', `col-md-${size} ${classes}`);
+}
+
+export function createContainer(parent, id = '', classes = '') {
+	return createElement('div', parent, id, `container ${classes}`);
+}
+
+export function createRow(parent, id = '', classes = '') {
+	return createElement('div', parent, id, `row ${classes}`);
 }

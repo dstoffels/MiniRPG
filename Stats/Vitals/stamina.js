@@ -1,4 +1,4 @@
-import { AGI, CON, DEX, STR } from '../Stats/attributes.js';
+import { AGI, CON, DEX, STR } from '../Attributes/attributes.js';
 import Vital from './vital.js';
 
 export default class Stamina extends Vital {

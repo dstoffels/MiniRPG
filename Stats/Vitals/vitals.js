@@ -1,4 +1,4 @@
-import Stats from '../Stats/stats.js';
+import Stats from '../stats.js';
 import Blood from './blood.js';
 import Mana from './mana.js';
 import Stamina from './stamina.js';

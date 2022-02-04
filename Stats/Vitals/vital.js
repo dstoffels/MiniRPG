@@ -1,4 +1,4 @@
-import { FULL_RECOVERY_TIME, TICK_RATE_MS } from '../constants.js';
+import { FULL_RECOVERY_TIME, TICK_RATE_MS } from '../../constants.js';
 
 // HitPoints, Stamina, Mana, Blood & Temperature all share common properties:
 // max, min, current, threshold, recovery. Getters/setters/methods may be overridden

@@ -1,21 +1,20 @@
-import createElement from '../BootstrapElements/createElement.js';
+import { createElement } from '../BootstrapElements/createElement.js';
 
 export default class Table {
-	column;
+	container;
 	constructor(player, parent, title) {
 		this.player = player;
 		this.parent = parent;
 		this.title = title;
-		this.display(parent);
 	}
 
 	display(parent) {
-		this.column = createElement('div', parent, '', '');
-		createElement('h4', this.column, '', 'text-center', this.title);
+		this.container = createElement('div', parent);
+		createElement('h4', this.container, '', 'text-center', this.title);
 
 		const table = createElement(
 			'table',
-			this.column,
+			this.container,
 			'',
 			'table table-dark table-hover',
 		);

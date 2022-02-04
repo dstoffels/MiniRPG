@@ -1,4 +1,4 @@
-import Stats from '../Stats/stats.js';
+import Stats from '../stats.js';
 import BodyPart from './bodyPart.js';
 import { BODY_PARTS } from './bodyParts.js';
 

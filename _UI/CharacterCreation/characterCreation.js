@@ -1,9 +1,11 @@
-import createCol from '../BootstrapElements/createCol.js';
-import createContainer from '../BootstrapElements/createContainer.js';
-import createElement from '../BootstrapElements/createElement.js';
-import createRow from '../BootstrapElements/createRow.js';
+import {
+	createCol,
+	createContainer,
+	createElement,
+	createRow,
+} from '../BootstrapElements/createElement.js';
 import AttributesTable from './attributesTable.js';
-import SkillsTable from './skillsTable.js';
+import SkillsTables from './skillsTables.js';
 import VitalsTable from './vitalsTable.js';
 
 export default class CharacterCreationScreen {
@@ -22,7 +24,7 @@ export default class CharacterCreationScreen {
 			'h2',
 			headerRow,
 			'',
-			'text-center mt-2',
+			'text-center mt-2 mb-4',
 			'Character Creation',
 		);
 
@@ -31,11 +33,18 @@ export default class CharacterCreationScreen {
 		const attsTable = new AttributesTable(this.player, mainCol1);
 		const vitalsContainer = createElement('div', mainCol1);
 		const vitalsTable = new VitalsTable(this.player, vitalsContainer);
-		createElement('label', mainCol1, '', '', 'Character Name:');
-		const nameInput = createElement('input', mainCol1, '', 'w-100 mb-3');
+
+		const mainCol2 = createCol(mainRow, 8);
+		const skillsTables = new SkillsTables(this.player, mainCol2);
+
+		const footerRow = createRow(ccContainer, '', 'justify-content-center');
+		const footerCol = createCol(footerRow, 3);
+
+		createElement('label', footerCol, '', '', 'Character Name:');
+		const nameInput = createElement('input', footerCol, '', 'w-100 mb-3');
 		createElement(
 			'button',
-			mainCol1,
+			footerCol,
 			'',
 			'btn btn-primary w-100',
 			'Create Character',
@@ -46,38 +55,7 @@ export default class CharacterCreationScreen {
 			},
 		);
 
-		const mainCol2 = createCol(mainRow, 8);
-
-		const subRow1 = createRow(mainCol2);
-		const subRow1Col1 = createCol(subRow1, 6);
-		const skillsTable = new SkillsTable(this.player, subRow1Col1);
-		const subRow1Col2 = createCol(subRow1, 6);
-		new SkillsTable(this.player, subRow1Col2);
-
-		const subRow2 = createRow(mainCol2);
-		const subRow2Col1 = createCol(subRow2, 6);
-		new SkillsTable(this.player, subRow2Col1);
-		const subRow2Col2 = createCol(subRow2, 6);
-		new SkillsTable(this.player, subRow2Col2);
-
-		const subRow3 = createRow(mainCol2);
-		const subRow3Col1 = createCol(subRow3, 4);
-		new SkillsTable(this.player, subRow3Col1);
-		const subRow3Col2 = createCol(subRow3, 4);
-		new SkillsTable(this.player, subRow3Col2);
-		const subRow3Col3 = createCol(subRow3, 4);
-		new SkillsTable(this.player, subRow3Col3);
-		// const mainRow = createElement('div', ccContainer, '', 'row border');
-		// const mainCol1 = createElement('div');
-
-		// const row2 = createElement('div', ccContainer, '', 'row');
-		// const skillsTable = new SkillsTable(this.player, row2);
-		attsTable.skillsTable = skillsTable;
-
-		// const row3 = createElement('div', ccContainer, '', 'row');
-
-		// const row3Col1 = createElement('div', row3, '', 'col-md-4');
-
+		attsTable.skillsTable = skillsTables;
 		attsTable.vitalsTable = vitalsTable;
 	}
 

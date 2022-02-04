@@ -1,7 +1,7 @@
-import Anatomy from '../Anatomy/Anatomy.js';
-import Attributes from '../Stats/attributes.js';
-import Skills from '../Stats/skills.js';
-import Vitals from '../Vitals/vitals.js';
+import Anatomy from '../Stats/Anatomy/Anatomy.js';
+import Attributes from '../Stats/Attributes/attributes.js';
+import Skills from '../Stats/Skills/skills.js';
+import Vitals from '../Stats/Vitals/vitals.js';
 
 export default class Player {
 	attributes = new Attributes();

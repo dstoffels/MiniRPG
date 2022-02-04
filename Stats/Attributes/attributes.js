@@ -1,5 +1,5 @@
+import Stats from '../stats.js';
 import Attribute from './attribute.js';
-import Stats from './stats.js';
 
 export const STR = 'Strength',
 	CON = 'Constitution',

@@ -1,5 +1,5 @@
 import { ATTRIBUTE_AVG } from '../../constants.js';
-import createElement from '../BootstrapElements/createElement.js';
+import { createElement } from '../BootstrapElements/createElement.js';
 import Table from './table.js';
 
 export default class AttributesTable extends Table {
@@ -8,6 +8,7 @@ export default class AttributesTable extends Table {
 
 	constructor(player, parent) {
 		super(player, parent, 'Attributes');
+		this.display(parent);
 	}
 
 	startingLevels = {};

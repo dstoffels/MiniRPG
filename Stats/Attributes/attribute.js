@@ -1,4 +1,4 @@
-import { ATTRIBUTE_AVG } from '../constants.js';
+import { ATTRIBUTE_AVG } from '../../constants.js';
 
 export default class Attribute {
 	#skillBonus = 0;

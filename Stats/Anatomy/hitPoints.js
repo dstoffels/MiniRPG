@@ -1,5 +1,5 @@
-import { TICK_RATE } from '../constants.js';
-import { CON, STR } from '../Stats/attributes.js';
+import { TICK_RATE } from '../../constants.js';
+import { CON, STR } from '../Attributes/attributes.js';
 import Vital from '../Vitals/vital.js';
 
 export default class HitPoints extends Vital {
