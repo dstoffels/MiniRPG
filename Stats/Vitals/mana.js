@@ -19,4 +19,6 @@ export default class Mana extends Vital {
 	constructor() {
 		super();
 	}
+
+	colors = ['blue', 'purple'];
 }

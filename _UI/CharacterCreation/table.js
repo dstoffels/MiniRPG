@@ -1,4 +1,4 @@
-import { createElement } from '../BootstrapElements/createElement.js';
+import { createElement } from '../createElement.js';
 
 export default class Table {
 	container;

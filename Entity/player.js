@@ -7,12 +7,12 @@ export default class Player {
 	attributes = new Attributes();
 	skills = new Skills(this.updateStats);
 	vitals = new Vitals();
-	anatomy = new Anatomy(this.vitals.blood.setBleeding);
+	anatomy = new Anatomy(this.vitals.blood.setBloodLoss);
 
-	updateStats() {
+	updateStats = () => {
 		this.attributes.update(this);
 		this.skills.update(this);
 		this.anatomy.update(this);
 		this.vitals.update(this);
-	}
+	};
 }

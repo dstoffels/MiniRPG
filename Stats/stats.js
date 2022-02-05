@@ -4,6 +4,7 @@ export default class Stats {
 		Object.entries(this).map(callback);
 	}
 
+	/** Maps over all property values of this object */
 	mapValues(callback) {
 		Object.values(this).map(callback);
 	}

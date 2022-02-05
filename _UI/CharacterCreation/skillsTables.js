@@ -7,11 +7,7 @@ import {
 	SHAMAN,
 	WARRIOR,
 } from '../../Stats/Skills/skillData.js';
-import {
-	createCol,
-	createElement,
-	createRow,
-} from '../BootstrapElements/createElement.js';
+import { Column, createElement, Row } from '../createElement.js';
 import DomainTable from './domainTable.js';
 
 export default class SkillsTables {
@@ -25,24 +21,24 @@ export default class SkillsTables {
 
 	display() {
 		this.container = createElement('div', this.parent);
-		const subRow1 = createRow(this.container);
-		const subRow1Col1 = createCol(subRow1, 6);
+		const subRow1 = Row(this.container);
+		const subRow1Col1 = Column(subRow1, 6);
 		new DomainTable(this.player, subRow1Col1, WARRIOR);
-		const subRow1Col2 = createCol(subRow1, 6);
+		const subRow1Col2 = Column(subRow1, 6);
 		new DomainTable(this.player, subRow1Col2, ROGUE);
 
-		const subRow2 = createRow(this.container);
-		const subRow2Col1 = createCol(subRow2, 6);
+		const subRow2 = Row(this.container);
+		const subRow2Col1 = Column(subRow2, 6);
 		new DomainTable(this.player, subRow2Col1, SHAMAN);
-		const subRow2Col2 = createCol(subRow2, 6);
+		const subRow2Col2 = Column(subRow2, 6);
 		new DomainTable(this.player, subRow2Col2, MAGE);
 
-		const subRow3 = createRow(this.container);
-		const subRow3Col1 = createCol(subRow3, 4);
+		const subRow3 = Row(this.container);
+		const subRow3Col1 = Column(subRow3, 4);
 		new DomainTable(this.player, subRow3Col1, BUILDER);
-		const subRow3Col2 = createCol(subRow3, 4);
+		const subRow3Col2 = Column(subRow3, 4);
 		new DomainTable(this.player, subRow3Col2, PIONEER);
-		const subRow3Col3 = createCol(subRow3, 4);
+		const subRow3Col3 = Column(subRow3, 4);
 		new DomainTable(this.player, subRow3Col3, SCHOLAR);
 	}
 

@@ -6,15 +6,6 @@ export default class BodyPart {
 	isBleeding = false;
 	hp = new HitPoints();
 
-	constructor(data, setBleeding) {
-		const [name, isVital, chanceToHit, dependents] = data;
-		this.name = name;
-		this.isVital = isVital;
-		this.chanceToHit = chanceToHit;
-		this.dependents = dependents;
-		this.setBleeding = setBleeding;
-	}
-
 	get condition() {
 		return this.hp.current / this.hp.max;
 	}
@@ -26,8 +17,8 @@ export default class BodyPart {
 	}
 
 	#checkIfBleeding() {
-		this.isBleeding = this.hp.current < this.hp.max / 2;
-		this.setBleeding();
+		this.isBleeding = this.hp.current <= this.hp.max / 2;
+		this.setBloodLoss();
 	}
 
 	#checkIfCrippled() {
@@ -38,8 +29,15 @@ export default class BodyPart {
 	// blood loss must be twice as fast as recovery time
 	// as it offsets blood.recoveryRate
 	get bloodLossPerSec() {
-		return this.isBleeding
-			? (this.hp.max - this.hp.current) / (FULL_RECOVERY_TIME / 2)
-			: 0;
+		return this.isBleeding ? (this.hp.max * 2 + this.hp.current) / FULL_RECOVERY_TIME : 0;
+	}
+
+	constructor(data, setBloodLossCB) {
+		const [name, isVital, chanceToHit, dependents] = data;
+		this.name = name;
+		this.isVital = isVital;
+		this.chanceToHit = chanceToHit;
+		this.dependents = dependents;
+		this.setBloodLoss = setBloodLossCB;
 	}
 }

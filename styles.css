@@ -11,3 +11,36 @@
 .att-inc-btn {
 	width: 30px;
 }
+
+.stat-meter-bg {
+	z-index: -2;
+	/* width: 200px; */
+	height: 8px;
+	background-color: black;
+	position: relative;
+}
+
+.stat-meter-full {
+	z-index: -1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+}
+
+.stat-meter-half-bg {
+	z-index: 1;
+	height: 100%;
+	width: 50%;
+	box-sizing: content-box;
+	border-right: 1px white solid;
+}
+
+.stat-meter-half {
+	z-index: 2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: black;
+	height: 100%;
+}

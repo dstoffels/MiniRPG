@@ -18,13 +18,13 @@ export default class Temperature extends Vital {
 	recover() {
 		var recovery = setInterval(() => {
 			this.current +=
-				this.current < 0
-					? this._recoveryRate()
-					: this.current > 0
-					? -this._recoveryRate()
-					: 0;
-			if (this.current === 0) clearInterval(recovery);
-			console.log(this.current); // TESTING
+				this.current < 0.02 ? this._recoveryRate : this.current > -0.02 ? -this._recoveryRate : 0;
+			this.updateUI(this.ratio);
+
+			if (this.current < 0.02 && this.current > -0.02) {
+				this.current = 0;
+				clearInterval(recovery);
+			}
 		}, TICK_RATE_MS);
 	}
 
@@ -35,4 +35,6 @@ export default class Temperature extends Vital {
 			? -this._threshold - this.current
 			: 0;
 	}
+
+	colors = ['red', 'blue'];
 }

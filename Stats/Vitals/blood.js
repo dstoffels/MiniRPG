@@ -14,20 +14,24 @@ export default class Blood extends Vital {
 
 	#totalBloodLoss = 0;
 
-	setBleeding(anatomy) {
+	setBloodLoss = anatomy => {
 		this.#totalBloodLoss = 0;
-		anatomy.map(bodyPart => {
+		anatomy.mapValues(bodyPart => {
 			this.#totalBloodLoss += bodyPart.bloodLossPerSec;
 		});
-	}
+		this.startRecovery();
+	};
 
-	_recoveryRate() {
+	get _recoveryRate() {
 		const ptsRecoveredPerSec = this.max / FULL_RECOVERY_TIME;
-		const ptsLosterPerSec = this.#totalBloodLoss ? 0 : 0;
-		return (ptsRecoveredPerSec - ptsLosterPerSec) * TICK_RATE;
+		const ptsLostPerSec = this.#totalBloodLoss > 0 ? this.#totalBloodLoss : 0;
+		return (ptsRecoveredPerSec - ptsLostPerSec) * TICK_RATE;
 	}
 
 	get _min() {
 		return 0;
 	}
+
+	isFullScale = true;
+	colors = ['red'];
 }

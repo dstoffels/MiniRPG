@@ -18,4 +18,6 @@ export default class Stamina extends Vital {
 	constructor() {
 		super();
 	}
+
+	colors = ['yellow', 'orange'];
 }

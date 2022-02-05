@@ -1,4 +1,4 @@
-import { FULL_RECOVERY_TIME, TICK_RATE_MS } from '../../constants.js';
+import { FULL_RECOVERY_TIME, TICK_RATE, TICK_RATE_MS } from '../../constants.js';
 
 // HitPoints, Stamina, Mana, Blood & Temperature all share common properties:
 // max, min, current, threshold, recovery. Getters/setters/methods may be overridden
@@ -15,7 +15,7 @@ export default class Vital {
 
 	// Minimum Level Defaults
 	get _min() {
-		return -this._max;
+		return -this.max;
 	}
 
 	// Threshold Default
@@ -36,22 +36,31 @@ export default class Vital {
 
 	decrease(amt) {
 		this.current -= amt;
-		this.recover();
+		this.startRecovery();
 	}
 
+	isRecovering = false;
+
+	startRecovery() {
+		if (!this.isRecovering) this.recover();
+	}
 	// Recovery Defaults
 	recover() {
+		this.isRecovering = true;
 		var recovery = setInterval(() => {
 			this.current += this._recoveryRate;
-			if (this.current >= this.max || this.current <= this._min)
+			this.updateUI(this.ratio);
+			if (this.current >= this.max || this.current <= this._min) {
 				clearInterval(recovery);
-			console.log(this.current); // TESTING
+				this.isRecovering = false;
+			}
+
+			// console.log(this.current); // TESTING
 		}, TICK_RATE_MS);
 	}
 
 	get _recoveryRate() {
-		const ptsHealedPerSec = this.max / FULL_RECOVERY_TIME;
-		return ptsHealedPerSec * TICK_RATE;
+		return ((this.max - this._min) / FULL_RECOVERY_TIME) * TICK_RATE;
 	}
 
 	// Debility
@@ -61,5 +70,20 @@ export default class Vital {
 
 	update(player) {
 		this._setMax(player);
+		this.startRecovery();
+		this.updateUI(this.ratio);
 	}
+
+	//#region UI
+	get ratio() {
+		return ((this.current - this._min) / (this.max - this._min)) * 100;
+	}
+
+	setUI(updateUIcb) {
+		this.updateUI = updateUIcb;
+	}
+
+	isFullScale = false;
+	colors = [];
+	//#endregion
 }
