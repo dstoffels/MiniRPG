@@ -1,19 +1,18 @@
-import { createElement, Div, Heading } from '../createElement.js';
+import { createElement, Div, Heading, Strong } from '../createElement.js';
 
 export default class VitalMeter {
-	constructor(parent, title, isFullScale = false, colors) {
+	constructor(parent, title, isFullScale = false, colors, isLarge = true) {
 		this.parent = parent;
-		this.title = title;
 		this.isFullScale = isFullScale;
-		this.display(colors);
+		this.display(colors, title, isLarge);
 	}
 
 	fullMeter;
 	halfMeter;
 
-	display([posColor, negColor]) {
-		const container = Div(this.parent, 'text-center p-2 flex-grow-1');
-		Heading(6, container, this.title);
+	display([posColor, negColor], title, isLarge) {
+		const container = Div(this.parent, `text-center ${isLarge ? 'p-4' : ''} mb-2 flex-grow-1`);
+		isLarge ? Heading(6, container, title) : Strong(container, title);
 
 		const fullMeterContainer = Div(container, 'stat-meter-bg');
 		this.fullMeter = Div(fullMeterContainer, 'stat-meter-full');

@@ -29,15 +29,18 @@ export default class BodyPart {
 	// blood loss must be twice as fast as recovery time
 	// as it offsets blood.recoveryRate
 	get bloodLossPerSec() {
-		return this.isBleeding ? (this.hp.max * 2 + this.hp.current) / FULL_RECOVERY_TIME : 0;
+		return this.isBleeding ? (this.hp.max - this.hp.current) / FULL_RECOVERY_TIME : 0;
 	}
 
 	constructor(data, setBloodLossCB) {
-		const [name, isVital, chanceToHit, dependents] = data;
+		const { name, isVital, chanceToHit, dependents, armorSlot, row, col } = data;
 		this.name = name;
 		this.isVital = isVital;
 		this.chanceToHit = chanceToHit;
 		this.dependents = dependents;
+		this.armorSlot = armorSlot;
+		this.row = row;
+		this.col = col;
 		this.setBloodLoss = setBloodLossCB;
 	}
 }

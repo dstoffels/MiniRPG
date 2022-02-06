@@ -1,3 +1,12 @@
+p {
+	margin-bottom: 1px;
+}
+
+#game-console {
+	height: 70vh;
+	overflow-y: auto;
+}
+
 #character-creation-screen {
 	z-index: 5;
 	position: absolute;

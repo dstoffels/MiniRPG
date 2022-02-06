@@ -32,5 +32,5 @@ export default class HitPoints extends Vital {
 	}
 
 	isFullScale = true;
-	colors = ['blue', 'red'];
+	colors = ['green', 'red'];
 }

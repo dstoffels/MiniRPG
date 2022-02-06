@@ -5,9 +5,10 @@ import { BODY_PARTS } from './bodyParts.js';
 export default class Anatomy extends Stats {
 	constructor(setBleeding) {
 		super();
-		BODY_PARTS.map(
-			data => (this[data[0]] = new BodyPart(data, () => setBleeding(this))),
-		);
+		BODY_PARTS.map(bodyPartData => {
+			const { name } = bodyPartData;
+			this[name] = new BodyPart(bodyPartData, () => setBleeding(this));
+		});
 	}
 
 	update(player) {

@@ -8,10 +8,10 @@ export function createElement(
 	onclick = null,
 ) {
 	const element = document.createElement(type);
-	element.className = classes;
-	element.id = id;
-	element.textContent = text;
-	element.onclick = onclick;
+	if (classes) element.className = classes;
+	if (id) element.id = id;
+	if (text) element.textContent = text;
+	if (onclick) element.onclick = onclick;
 	parent?.appendChild(element);
 
 	return element;
@@ -29,7 +29,7 @@ export function Row(parent, id = '', classes = '') {
 	return createElement('div', parent, id, `row ${classes}`);
 }
 
-export function Column(parent, size, classes) {
+export function Column(parent, size = 1, classes) {
 	return createElement('div', parent, '', `col-md-${size} ${classes}`);
 }
 
@@ -43,6 +43,14 @@ export function Heading(size, parent, text) {
 
 export function Div(parent, classes, id) {
 	return createElement('div', parent, id, classes);
+}
+
+export function Strong(parent, text, classes, id) {
+	return createElement('strong', parent, id, classes, text);
+}
+
+export function P(parent, text, classes, id) {
+	return createElement('p', parent, id, classes, text);
 }
 
 export function Script(src, integrity, crossOrigin) {

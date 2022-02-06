@@ -1,15 +1,15 @@
+import { Div } from '../createElement.js';
+
 export default class Console {
-	constructor() {
-		self = document.getElementById('console');
+	constructor(parent) {
+		this.screen = Div(parent, 'container-fluid border', 'game-console');
 	}
 
-	addLine(text) {
-		const p = document.createElement('p');
-		p.className = 'mb-0 blockquote';
-		p.textContent = text;
-		self.appendChild(p);
+	log = content => {
+		const wrapper = Div(this.screen, 'console-log mb-4');
+		wrapper.appendChild(content);
 		this.scrollBottom();
-	}
+	};
 
 	scrollBottom() {
 		self.scrollTop = self.scrollHeight;

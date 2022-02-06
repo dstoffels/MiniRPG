@@ -24,7 +24,7 @@ export default class Blood extends Vital {
 
 	get _recoveryRate() {
 		const ptsRecoveredPerSec = this.max / FULL_RECOVERY_TIME;
-		const ptsLostPerSec = this.#totalBloodLoss > 0 ? this.#totalBloodLoss : 0;
+		const ptsLostPerSec = this.#totalBloodLoss > 0 ? ptsRecoveredPerSec + this.#totalBloodLoss : 0;
 		return (ptsRecoveredPerSec - ptsLostPerSec) * TICK_RATE;
 	}
 

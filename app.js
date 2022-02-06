@@ -4,30 +4,16 @@ import MainMenu from './_UI/MainMenu/mainMenu.js';
 import VitalsBar from './_UI/HUD/vitalsBar.js';
 import { Script } from './_UI/createElement.js';
 import AnatomyUI from './_UI/HUD/anatomyUI.js';
+import HUD from './_UI/HUD/hud.js';
 
 const mainContainer = document.getElementById('main');
-// const consoleWindow = new Console();
 const player = new Player();
 
-new VitalsBar(player, mainContainer);
-
-// player.vitals.mapValues(vital => {
-// 	vital.decrease(500);
-// 	if (vital.increase) vital.increase(500);
-// });
-
-new AnatomyUI(player, mainContainer);
-player.updateStats();
-
-setTimeout(() => {
-	player.anatomy.Chest.takeDamage(12.5);
-}, 5000);
-
-// setInterval(() => {
-// 	player.anatomy.mapValues(bp => {
-// 		bp.takeDamage(rand(7));
-// 	});
-// }, 5000);
+player.testLog();
+player.testLog();
+player.testLog();
+player.testLog();
+player.testLog();
 
 const rand = max => Math.floor(Math.random() * max);
 Script(
