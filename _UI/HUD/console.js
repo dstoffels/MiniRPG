@@ -12,6 +12,6 @@ export default class Console {
 	};
 
 	scrollBottom() {
-		self.scrollTop = self.scrollHeight;
+		this.screen.scrollTop = this.screen.scrollHeight;
 	}
 }

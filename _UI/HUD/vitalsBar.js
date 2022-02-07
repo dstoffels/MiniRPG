@@ -1,10 +1,8 @@
-import Player from '../../Entity/player.js';
-import Stats from '../../Stats/stats.js';
-import { Container, Div } from '../createElement.js';
+import { Div } from '../createElement.js';
 import VitalMeter from './vitalMeter.js';
 
 export default class VitalsBar {
-	constructor(player = Player, parent) {
+	constructor(player, parent) {
 		this.player = player;
 		this.container = Div(parent, 'd-flex');
 

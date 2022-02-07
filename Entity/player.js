@@ -16,7 +16,7 @@ export default class Player {
 	testLog() {
 		const content = Div(null);
 		this.attributes.mapValues(att => P(content, `${att.name}: ${att.level}`));
-		this.hud.gameConsole.log(content);
+		this.hud.consoleWindow.log(content);
 	}
 
 	attributes = new Attributes();

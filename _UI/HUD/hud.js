@@ -1,13 +1,14 @@
 import { Column, Div, Heading, Row } from '../createElement.js';
 import AnatomyUI from './anatomyUI.js';
-import Console from './console.js';
+import ConsoleWindow from './console.js';
+import ControlPanel from './controlPanel.js';
 import VitalsBar from './vitalsBar.js';
 
 export default class HUD {
 	constructor(player, parent) {
 		this.player = player;
 		this.container = Div(parent, '', 'hud');
-		this.gameConsole;
+		this.consoleWindow;
 
 		this.render();
 		this.player.updateStats();
@@ -25,13 +26,14 @@ export default class HUD {
 		//    user must be able to click entities to interact
 
 		const centerCol = Column(mainRow, 6);
-		this.gameConsole = new Console(centerCol);
+		this.consoleWindow = new ConsoleWindow(centerCol);
 
 		const rightCol = Column(mainRow, 3, 'text-center');
 		new AnatomyUI(this.player, rightCol);
-		const controlsRow = Row(this.container);
 
-		// need console in center of main row
+		const controlsRow = Row(this.container, '', 'p-3');
+		new ControlPanel(this.player, controlsRow);
+
 		// need ui controls along bottom
 		//		  WASD for NWSE node movement? how to override keystrokes??
 		// how to view skills/attributes?

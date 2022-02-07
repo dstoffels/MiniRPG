@@ -33,8 +33,8 @@ export function Column(parent, size = 1, classes) {
 	return createElement('div', parent, '', `col-md-${size} ${classes}`);
 }
 
-export function Button(color = 'primary', parent, id, classes = '', text = '', onclick) {
-	return createElement('button', parent, id, `btn btn-${color} ${classes}`, text, onclick);
+export function Button(parent, text, onclick, classes, color = 'primary') {
+	return createElement('button', parent, '', `btn btn-${color} ${classes}`, text, onclick);
 }
 
 export function Heading(size, parent, text) {
