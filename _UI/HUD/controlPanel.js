@@ -1,8 +1,8 @@
 import { Button, Column, Div, P, Row } from '../createElement.js';
 
 export default class ControlPanel {
-	constructor(player, parentRow) {
-		this.player = player;
+	constructor(hud, parentRow) {
+		this.hud = hud;
 		this.render(parentRow);
 	}
 
@@ -14,7 +14,7 @@ export default class ControlPanel {
 		const north = Button(
 			northCol,
 			'NORTH',
-			() => this.player.hud.consoleWindow.log(P(null, 'Player moved north')),
+			() => this.hud.consoleWindow.log(P(null, 'Player moved north')),
 			'w-100',
 		);
 
@@ -23,14 +23,14 @@ export default class ControlPanel {
 		const west = Button(
 			westCol,
 			'WEST',
-			() => this.player.hud.consoleWindow.log(P(null, 'Player moved west')),
+			() => this.hud.consoleWindow.log(P(null, 'Player moved west')),
 			'w-100',
 		);
 		const eastCol = Column(dirRow2, 6, 'm-auto');
 		const east = Button(
 			eastCol,
 			'EAST',
-			() => this.player.hud.consoleWindow.log(P(null, 'Player moved east')),
+			() => this.hud.consoleWindow.log(P(null, 'Player moved east')),
 			'w-100',
 		);
 
@@ -39,7 +39,7 @@ export default class ControlPanel {
 		const south = Button(
 			southCol,
 			'SOUTH',
-			() => this.player.hud.consoleWindow.log(P(null, 'Player moved south')),
+			() => this.hud.consoleWindow.log(P(null, 'Player moved south')),
 			'w-100',
 		);
 	}
